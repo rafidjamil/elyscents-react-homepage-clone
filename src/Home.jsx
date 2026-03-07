@@ -1,60 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
 import { useProducts } from './ProductContext';
-import './App.css';
 import { Link } from 'react-router-dom';
-
+import OpenCartModal from './helpers/OpenCartModal';
+import './App.css';
 
 export const CategorySection = ({ categoryTitle, categoryName }) => {
     const { allProducts, loading } = useProducts();
+    const [cart, setCart] = useState([]);
+    const addToCartNow = OpenCartModal();
+
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+    };
+
+    const handleBtnClick = (t) => {
+        addToCart(t);
+        addToCartNow();
+    };
 
     if (loading) return <div className="text-center my-5"><p>Loading Products...</p></div>;
-
 
     const categoryProducts = allProducts
         .filter(p => p.category === categoryName)
         .slice(0, 10);
 
     return (
-       <div className="category-section mb-5 mt-5">
-        <h2 className="text-center text-uppercase mb-4 fw-bold" style={{ letterSpacing: '2px' }}>
-            {categoryTitle}
-        </h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
-            {categoryProducts.map((t) => (
-                <Card key={t.id} style={{ width: '18rem', border: 'none' }} className="text-center product-card-container">
-                    
-                 
-                    <Link to={`/product/${t.id}`} style={{ textDecoration: 'none' }}>
-                        <div className="image-wrapper" style={{ height: '300px', backgroundColor: '#f8f8f8', cursor: 'pointer' }}>
-                            <img
-                                src={t.thumbnail}
-                                style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '15px' }}
-                                alt={t.title}
-                            />
-                        </div>
-                    </Link>
-
-                    <Card.Body>
-                        <Card.Title style={{ fontSize: '1rem', textTransform: 'uppercase' }}>{t.title}</Card.Title>
-                        <p className="fw-bold">Rs. {t.price}</p>
-                        
-                       
-                        <Button 
-                            variant="dark" 
-                            className="w-100 rounded-0"
-                               onClick={() => handleBtnClick(t)}
-                        >
-                            Add to Cart
-                        </Button>
-                    </Card.Body>
-                </Card>
-            ))}
+        <div className="category-section mb-5 mt-5">
+            <h2 className="text-center text-uppercase mb-4 fw-bold" style={{ letterSpacing: '2px' }}>
+                {categoryTitle}
+            </h2>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
+                {categoryProducts.map((t) => (
+                    <Card key={t.id} style={{ width: '18rem', border: 'none' }} className="text-center product-card-container">
+                        <Link to={`/product/${t.id}`} style={{ textDecoration: 'none' }}>
+                            <div className="image-wrapper" style={{ height: '300px', backgroundColor: '#f8f8f8', cursor: 'pointer' }}>
+                                <img
+                                    src={t.thumbnail}
+                                    style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '15px' }}
+                                    alt={t.title}
+                                />
+                            </div>
+                        </Link>
+                        <Card.Body>
+                            <Card.Title style={{ fontSize: '1rem', textTransform: 'uppercase' }}>{t.title}</Card.Title>
+                            <p className="fw-bold">Rs. {t.price}</p>
+                            <Button
+                                variant="dark"
+                                className="w-100 rounded-0"
+                                onClick={() => handleBtnClick(t)}
+                            >
+                                Add to Cart
+                            </Button>
+                        </Card.Body>
+                    </Card>
+                ))}
+            </div>
         </div>
-    </div>
     );
 };
-
 
 const HeroBanner = () => {
     return (
@@ -70,18 +74,15 @@ const HeroBanner = () => {
                     </p>
                 </Container>
             </div>
-
         </>
     );
 };
-
 
 const Home = () => {
     return (
         <>
             <HeroBanner />
             <Container>
-
                 <CategorySection categoryTitle="Beauty & Cosmetics" categoryName="beauty" />
                 <CategorySection categoryTitle="Luxury Fragrances" categoryName="fragrances" />
                 <CategorySection categoryTitle="Home Decoration" categoryName="home-decoration" />
