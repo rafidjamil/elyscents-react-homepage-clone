@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 // import ProductCard from './components/perfumecard';
-import MyNavbar from './components/navbar';
+import MyNavbar from './components/Navbar';
 import Footer from './components/footer';
 import { Routes, Route } from 'react-router-dom'
 import Mycataloge from './Cataloge';
