@@ -30,7 +30,7 @@ export const Searchicon = (props) => {
 }
 
 
-const navbar = () => {
+const Navbar = () => {
     
     const addToCartNow = OpenCartModal();
     const searchNow = OpenSearchModal();
@@ -81,4 +81,4 @@ const navbar = () => {
     )
 }
 
-export default navbar
+export default Navbar

@@ -1,19 +1,19 @@
-// import Container from 'react-bootstrap/Container';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
-// import ProductCard from './components/perfumecard';
-import MyNavbar from './components/navbar';
+
+import MyNavbar from './components/Navbar';
 import Footer from './components/footer';
 import { Routes, Route } from 'react-router-dom'
-import Mycataloge from './cataloge';
+import Mycataloge from './Cataloge';
 
 import ProductPage from './Productpage'
 import CartModal from './Addtocart';
 import Checkout from './checkout';
 import SearchModal from './overlay/Overlay'
-// import OpenCartModal from '../helpers/OpenCartModal';
+
 import Login from './Login'
 import UserProfile from './UserProfile'
 import Beauty from './components/Beauty';
