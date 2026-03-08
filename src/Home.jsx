@@ -66,7 +66,7 @@ export const CategorySection = ({ categoryTitle, categoryName }) => {
 
             </h2>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0px' }}>
 
                 {categoryProducts.map((t) => (
 

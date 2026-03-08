@@ -611,6 +611,8 @@ h5 {
     .nav-right {
         font-size: 18px;
         gap: 18px;
+        display: flex;
+        align-items: center;
     }
     /* Hero Banner */
     .newyear-banner {
@@ -682,6 +684,8 @@ h5 {
     .nav-right {
         font-size: 18px;
         gap: 14px;
+        display: flex;
+        align-items: center;
     }
     .icon {
         font-size: 22px;
@@ -897,6 +901,8 @@ h5 {
     .nav-right {
         font-size: 16px;
         gap: 12px;
+        display: flex;
+        align-items: center;
     }
     .newyear-banner p {
         font-size: 13px;
