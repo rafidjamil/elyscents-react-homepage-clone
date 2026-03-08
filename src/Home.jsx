@@ -4,16 +4,18 @@ import { useProducts } from './ProductContext';
 import { Link } from 'react-router-dom';
 import OpenCartModal from './helpers/OpenCartModal';
 import './App.css';
+import { useCart } from './CartContext';
 
 export const CategorySection = ({ categoryTitle, categoryName }) => {
     const { allProducts, loading } = useProducts();
-    const [cart, setCart] = useState([]);
+    // const [cart, setCart] = useState([]);
+    
+    // const addToCart = (product) => {
+    //     setCart([...cart, product]);
+    // };
+    const { addToCart } = useCart();
+    
     const addToCartNow = OpenCartModal();
-
-    const addToCart = (product) => {
-        setCart([...cart, product]);
-    };
-
     const handleBtnClick = (t) => {
         addToCart(t);
         addToCartNow();

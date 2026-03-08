@@ -3,11 +3,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
-<<<<<<< HEAD
 
-=======
-// import ProductCard from './components/perfumecard';
->>>>>>> 6fd7f966014d4d957dde350c0cc226c3786c05a4
 import MyNavbar from './components/Navbar';
 import Footer from './components/footer';
 import { Routes, Route } from 'react-router-dom'
