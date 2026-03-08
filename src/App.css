@@ -947,3 +947,177 @@ h5 {
         padding: 24px 14px;
     }
 }
+
+.pp-wrapper {
+    padding: 30px 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Thumbnails: vertical on desktop, horizontal scroll on mobile */
+
+.pp-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 12px;
+}
+
+.pp-thumb-img {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    transition: border-color 0.2s;
+}
+
+.pp-thumb-img:hover,
+.pp-thumb-img.active {
+    border-color: #000 !important;
+}
+
+.pp-main-img-wrap {
+    overflow: hidden;
+    border: 1px solid #eee;
+    flex: 1;
+}
+
+.pp-main-img {
+    width: 100%;
+    max-height: 550px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+    cursor: zoom-in;
+    display: block;
+}
+
+.pp-main-img:hover {
+    transform: scale(1.5);
+}
+
+.pp-left-col {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* Ask a question form */
+
+.pp-question-form input,
+.pp-question-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 0.88rem;
+}
+
+.pp-question-form input:focus,
+.pp-question-form textarea:focus {
+    outline: none;
+    border-color: #212529;
+    box-shadow: none;
+}
+
+
+/* ---- TABLET ---- */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .pp-wrapper {
+        padding: 24px 16px 0;
+    }
+    .pp-main-img {
+        max-height: 420px;
+    }
+    .pp-thumb-img {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+    }
+}
+
+
+/* ---- MOBILE ---- */
+
+@media (max-width: 768px) {
+    .pp-wrapper {
+        padding: 16px 14px 0;
+    }
+    /* Stack image section vertically on mobile */
+    .pp-left-col {
+        flex-direction: column-reverse;
+    }
+    /* Thumbnails go horizontal below main image */
+    .pp-thumbnails {
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-right: 0;
+        margin-top: 10px;
+        gap: 8px;
+        padding-bottom: 4px;
+    }
+    .pp-thumb-img {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+        flex-shrink: 0;
+    }
+    .pp-main-img-wrap {
+        width: 100%;
+    }
+    .pp-main-img {
+        max-height: 320px;
+    }
+    /* Disable zoom on touch screens */
+    .pp-main-img:hover {
+        transform: scale(1);
+    }
+    /* Product info section */
+    .pp-info-col {
+        padding-top: 20px !important;
+    }
+    /* Price area */
+    .pp-price-area {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    /* Promo banner */
+    .pp-promo {
+        font-size: 0.82rem;
+    }
+    /* Add to cart / buy now buttons */
+    .pp-btn-group .btn {
+        font-size: 0.9rem;
+        padding: 13px 10px;
+    }
+    /* Accordion headers */
+    .pp-accordion-header {
+        font-size: 0.78rem;
+    }
+    /* Reviews */
+    .pp-reviews-title {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pp-wrapper {
+        padding: 12px 10px 0;
+    }
+    .pp-main-img {
+        max-height: 270px;
+    }
+    .pp-thumb-img {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+    }
+    .pp-btn-group .btn {
+        font-size: 0.82rem;
+        padding: 12px 8px;
+    }
+}
